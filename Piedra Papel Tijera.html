@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Piedra, Papel, Tijeras, Lagarto, Spock
+        </title>
+        <script>
+            function generarAleatorio(min, max){
+                numero = Math.floor(Math.random()*(max-min+1)+min)
+                return numero
+            }
+
+            function informarSeleccion(valor){
+                let seleccion = ""
+                if(valor == 1){
+                    seleccion = "escogió Piedra ✊"
+                } else if (valor == 2){
+                    seleccion = "escogió Papel ✋"
+                } else if (valor == 3){
+                    seleccion = "escogió Tijera ✌️"
+                } else if (valor == 4){
+                    seleccion = "escogió Lagarto 🫳"
+                } else if (valor == 5){
+                    seleccion = "escogió Spock 🖖"
+                } else{
+                    seleccion = "escogió una opción no válida"
+                }
+                return seleccion
+            }
+            
+            function seleccionGanador(persona, computador){
+                let resultado = ""
+                if(persona == computador){
+                resultado = "Empate"
+                }else if(persona == 1 && (computador == 3 || computador == 4) ||
+                        persona == 2 && (computador == 1 || computador == 5) ||
+                        persona == 3 && (computador == 2 || computador == 4) ||
+                        persona == 4 && (computador == 2 || computador == 5) ||
+                        persona == 5 && (computador == 1 || computador == 3)){
+                    resultado = "Usted gana"
+                } else{
+                    resultado = "PC gana"
+                }
+                return resultado
+            }
+
+            let jugador = 0
+            let pc = 0
+
+            //Selección del usuario
+            jugador = prompt ("Seleccione su jugada así: " + 
+                                "\n 1: Piedra ✊" +
+                                "\n 2: Papel ✋" +
+                                "\n 3: Tijeras ✌️" +
+                                "\n 4: Lagarto 🫳" + 
+                                "\n 5: Spock 🖖")
+            
+            //Selección del pc
+            pc = generarAleatorio(1,5)
+                        
+            //Resultado del combate
+            alert(" El jugador " + informarSeleccion(jugador) +
+                    "\n El PC " + informarSeleccion(pc) +
+                    "\n " + seleccionGanador(jugador, pc))  
+
+        </script>
+
+    </head>
+    <body>
+        <h1>Piedra, Papel, Tijeras, Lagarto, Spock</h1>
+        <p>Tijeras cortan Papel</p>
+        <p>Papel tapa a Piedra</p1>
+        <p>Piedra aplasta Lagarto</p2>
+        <p>Lagarto envenena a Spock</p3>
+        <p>Spock rompe Tijeras</p4>
+        <p>Tijeras decapitan Lagarto</p5>
+        <p>Lagarto debora Papel</p6>
+        <p>Papel desautoriza Spock</p7>
+        <p>Spock vaporiza Piedra</p8>
+        <p>Piedra aplasta tijeras</p9>
+    </body>
+</html>

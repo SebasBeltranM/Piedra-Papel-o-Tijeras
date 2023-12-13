@@ -38,30 +38,40 @@
                         persona == 4 && (computador == 2 || computador == 5) ||
                         persona == 5 && (computador == 1 || computador == 3)){
                     resultado = "Usted gana"
+                    victoriasJugador = victoriasJugador +1
                 } else{
                     resultado = "PC gana"
+                    victoriasPC = victoriasPC +1
                 }
                 return resultado
             }
 
             let jugador = 0
             let pc = 0
+            let victoriasJugador = 0
+            let victoriasPC = 0
 
-            //Selección del usuario
-            jugador = prompt ("Seleccione su jugada así: " + 
-                                "\n 1: Piedra ✊" +
-                                "\n 2: Papel ✋" +
-                                "\n 3: Tijeras ✌️" +
-                                "\n 4: Lagarto 🫳" + 
-                                "\n 5: Spock 🖖")
-            
-            //Selección del pc
-            pc = generarAleatorio(1,5)
-                        
-            //Resultado del combate
-            alert(" El jugador " + informarSeleccion(jugador) +
-                    "\n El PC " + informarSeleccion(pc) +
-                    "\n " + seleccionGanador(jugador, pc))  
+            while(victoriasJugador < 3 && victoriasPC <3){
+
+                //Selección del usuario
+                jugador = prompt ("Seleccione su jugada así: " + 
+                                    "\n 1: Piedra ✊" +
+                                    "\n 2: Papel ✋" +
+                                    "\n 3: Tijeras ✌️" +
+                                    "\n 4: Lagarto 🫳" + 
+                                    "\n 5: Spock 🖖")
+                
+                //Selección del pc
+                pc = generarAleatorio(1,5)
+                            
+                //Resultado del combate
+                alert(" El jugador " + informarSeleccion(jugador) +
+                        "\n El PC " + informarSeleccion(pc) +
+                        "\n " + seleccionGanador(jugador, pc) +
+                        "\n Marcador " +
+                        "\n Jugador " + victoriasJugador + " : " + victoriasPC + " PC")
+
+            }  
 
         </script>
 
@@ -78,5 +88,6 @@
         <p>Papel desautoriza Spock</p7>
         <p>Spock vaporiza Piedra</p8>
         <p>Piedra aplasta tijeras</p9>
+        <p>Gana quien complete tres victorias</p10>
     </body>
 </html>
